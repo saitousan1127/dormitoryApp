@@ -1,0 +1,3 @@
+title=Tenko
+author=MasatoSaito
+orientation=portrait

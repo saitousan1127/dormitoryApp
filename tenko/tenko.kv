@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+Root:
+<Root>:
+    canvas.before:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Login>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'ログインして点呼を完了してください'
+            size_hint_y: 0.4
+            font_size: 24
+        BoxLayout:
+            orientation:'horizontal'
+            Label:
+                text:'メールアドレス：'
+            BoxLayout:
+                orientation:'vertical'
+                Label:   #ユーザネーム上
+                    text:'　'
+                UserName:
+                    id: username
+                Label:   #ユーザネーム下
+                    text:'　'
+            Label:
+                text:'@sendai-nct.jp'
+        BoxLayout:
+            orientation:'horizontal'
+            Label:
+                text:'パスワード：'
+            BoxLayout:
+                orientation:'vertical'
+                Label:   #パスワード上
+                    text:'　'
+                Password:
+                    id: password
+                Label:   #パスワード下
+                    text:'　'
+            Label:
+                text:'　'
+        Label:
+            id: error
+            color: 1,0,0,1
+            font_size: 16
+            size_hint_y: 0.2
+        Button:
+            color: 1,1,1,1
+            text:'ログイン'
+            on_press: app.root.login.check()
+
+<Do>:
+    color: 1,1,1,1
+    Label:
+        id: message
+        text:'点呼データ送信中'
+
+<FR>:
+    Button:
+        color: 1,1,1,1
+        text: '顔認証'
+        on_press: app.root.gotoDo()
+
+<UserName@TextInput>:
+    text: 's1801063'
+    font_size: 20
+    multiline: False
+    padding: self.width/4, (self.height-self.line_height)/2   #文字を真ん中に表示
+    on_text:
+        if len(self.text)>2: self.text = self.text[0:8]   #文字数制限
+
+<Password@TextInput>:
+    text: ''
+    font_size: 20
+    multiline: False
+    password: True
+    padding: self.width/4, (self.height-self.line_height)/2   #文字を真ん中に表示
+    on_text:
+        if len(self.text)>2: self.text = self.text[0:16]   #文字数制限
+
+<Button>:
+    font_size: 24
+
+<Label>:
+    color: 0,0,0,1
+    font_name: 'VL-Gothic-Regular'
+    font_size: 32

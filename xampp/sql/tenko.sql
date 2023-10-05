@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS tenko;
+CREATE TABLE tenko (
+    id    MEDIUMINT UNSIGNED NOT NULL,
+    date  DATETIME
+);
